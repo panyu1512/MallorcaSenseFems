@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cd /senseFems/app
+cd /sensefems/app
 
 echo "Using django settings $DJANGO_SETTINGS_MODULE"
 
@@ -28,6 +28,6 @@ else
   # echo "Starting NGINX"
   # nginx
 
-  echo "gunicorn senseFems.wsgi $ARGS"
-  gunicorn senseFems.wsgi $ARGS
+  echo "gunicorn sensefems.wsgi $ARGS"
+  gunicorn sensefems.wsgi $ARGS
 fi
