@@ -1,0 +1,46 @@
+version: "3.8"
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: DockerfileDev
+    ports:
+      - 4200:4200
+    volumes:
+      - node_modules:/usr/src/app/node_modules
+      - ./frontend:/usr/src/app
+  api:
+    image: sensefems/api
+    build:
+      context: ./backend
+      dockerfile: DockerfileDev
+    environment:
+      DJANGO_ENVIRONMENT: development
+      DJANGO_SETTINGS_MODULE: sensefems.settings.dev
+      POSTGRES_DBNAME: ${POSTGRES_DBNAME:-sensefems}
+      POSTGRES_USER: ${POSTGRES_USER:-sensefems}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ke7x<*aB3Yw}
+    volumes:
+      - ./backend/sensefems:/sensefems/app
+    ports:
+      - 8000:8000
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres:13.0-alpine
+    volumes:
+      - hatedb:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DBNAME: ${POSTGRES_DBNAME:-sensefems}
+      POSTGRES_USER: ${POSTGRES_USER:-sensefems}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ke7x<*aB3Yw}
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "sensefems" ]
+      interval: 5s
+      timeout: 2s
+      retries: 5
+
+volumes:
+  hatedb:
+  node_modules:
