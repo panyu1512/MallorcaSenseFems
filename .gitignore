@@ -1,0 +1,6 @@
+__pycache__
+
+#Ignore the scrapper results folder
+results
+venv
+.idea
