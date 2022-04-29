@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
 
-        # Discamino Apps #
+    # Discamino Apps #
     'beach_manager.apps.BeachManagerConfig',
+    'trash_manager.apps.TrashManagerConfig',
 ]
 
 MIDDLEWARE = [
