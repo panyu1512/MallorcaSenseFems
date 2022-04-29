@@ -18,6 +18,7 @@ from django.urls import path, include
 from rest_framework import routers
 
 from beach_manager import views as beach_views
+from trash_manager import views as trash_views
 
 
 router = routers.DefaultRouter()
