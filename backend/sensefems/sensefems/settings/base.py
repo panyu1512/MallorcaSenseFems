@@ -16,6 +16,9 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+STATIC_ROOT = BASE_DIR / "static"
+STATIC_URL = '/static/'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -40,9 +43,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
 
-    # Discamino Apps #
-    'beach_manager.apps.BeachManagerConfig',
-    'trash_manager.apps.TrashManagerConfig',
+    # # Discamino Apps #
+    # 'beach_manager.apps.BeachManagerConfig',
+    # 'trash_manager.apps.TrashManagerConfig',
+
+    # Local apps
+    'beach_manager',
+    'trash_manager',
 ]
 
 MIDDLEWARE = [
