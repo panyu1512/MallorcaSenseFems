@@ -1,5 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+#brandName{
+  font-size: 1.5em;
+  font-family: 'Roboto Slab', serif;
+	background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+
 @media only screen and (max-width: 600px) {
     img {
-      width: 250px;
+      width: 70px;
+    }
+    #brandName{
+      font-size: 1.2em;
+      padding-top: 0.5rem;
     }
 }
+

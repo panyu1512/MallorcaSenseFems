@@ -23,6 +23,7 @@ from trash_manager import views as trash_views
 
 router = routers.DefaultRouter()
 router.register('beaches', beach_views.BeachViewSet)
+router.register('trashes', trash_views.TrashViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
